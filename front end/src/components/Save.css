@@ -1,0 +1,13 @@
+.inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputs-form {
+  display: flex;
+  flex-direction: row;
+}
+
+input {
+  padding: 10px;
+}
