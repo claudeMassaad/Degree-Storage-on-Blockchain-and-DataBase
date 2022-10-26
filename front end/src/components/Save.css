@@ -1,13 +1,24 @@
 .inputs {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
 .inputs-form {
   display: flex;
   flex-direction: row;
+  gap: 10px;
 }
 
 input {
-  padding: 10px;
+  padding-bottom: 30px;
+}
+
+.saveInfo {
+  margin-top: 20px;
+}
+
+.merkleFields {
+  padding-left: 5px;
+  padding-right: 5px;
 }

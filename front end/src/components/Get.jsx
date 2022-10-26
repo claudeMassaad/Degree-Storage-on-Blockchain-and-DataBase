@@ -1,10 +1,12 @@
 import React from "react";
 import "../../src/App.css";
 
-function Get() {
+function Get(props) {
   return (
     <div>
-      <button>Get Merkle Tree and Merkle Root</button>
+      <button onClick={props.handleGetInfo}>
+        Get Merkle Tree and Merkle Root
+      </button>
     </div>
   );
 }

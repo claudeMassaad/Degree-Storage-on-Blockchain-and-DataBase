@@ -7,15 +7,15 @@ function Save() {
     <div>
       <div className="inputs">
         <div className="inputs-form">
-          <p>Merkle Root </p>
+          <p className="merkleFields">Merkle Tree </p>
           <input />
         </div>
         <div className="inputs-form">
-          <p>Merkle Tree </p>
+          <p className="merkleFields">Merkle Root </p>
           <input />
         </div>
       </div>
-      <button>Save information to data base</button>
+      <button className="saveInfo">Save information to data base</button>
     </div>
   );
 }
