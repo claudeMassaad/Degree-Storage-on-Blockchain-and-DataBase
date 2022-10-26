@@ -8,8 +8,8 @@ const postPDF = asyncHandler(async (req,res)=>{
     throw new Error('Please send hashed PDFs data');
    }
 
-   const merkleTree = layers;
    const length = layers.length;
+   const merkleTree = layers.slice(1, length);
    const merkleRoot = layers[length-1];  
    const leafs = layers[0];
 
@@ -31,9 +31,7 @@ const validatePDF = asyncHandler(async(req,res)=>{
       res.status(400);
       throw new Error('Please send a Hased PDF');
    }
-   //try to look inside only one place at least.
    const pdfExists = await MerkleTree.findOne({leafs:hashedPdf});
-
    if(!pdfExists){
       res.status(400);
       throw new Error('Could not find a match for that pdf');
