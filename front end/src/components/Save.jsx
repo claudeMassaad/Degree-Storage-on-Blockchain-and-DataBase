@@ -1,21 +1,26 @@
 import React from "react";
 import "../../src/App.css";
 import "./Save.css";
+import TransactionHistory from "./TransactionHistory";
 
-function Save() {
+function Save(props) {
   return (
     <div>
-      <div className="inputs">
-        <div className="inputs-form">
-          <p className="merkleFields">Merkle Tree </p>
-          <input />
+      {props.completed ? (
+        <TransactionHistory txHash={props.txHash} />
+      ) : (
+        <div>
+          <div className="inputs">
+            <div className="inputs-form">
+              <p className="merkleFields">Merkle Root: </p>
+              <p className="hashRoot">{props.merkleRoot}</p>
+            </div>
+          </div>
+          <button onClick={props.handleSave} className="saveInfo">
+            Save information to data base
+          </button>
         </div>
-        <div className="inputs-form">
-          <p className="merkleFields">Merkle Root </p>
-          <input />
-        </div>
-      </div>
-      <button className="saveInfo">Save information to data base</button>
+      )}
     </div>
   );
 }

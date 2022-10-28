@@ -2,18 +2,18 @@ const mongoose = require('mongoose');
 
 const merkleTreeSchema = mongoose.Schema({
     leafs:[{
-        type:String,
-        required:[true,'Please Send Leaf nodes'],
+        type:{type:String},
+        data:[{type:String}]
     }],
-    merkleTree: [
-        [{
-        type:String,
-        required:[true,'Please Send A MekleTree'],
-    }],
-],
+    merkleTree:[[
+        {
+            type:{type:String},
+            data:[{type:String}],
+        }
+    ]],
     merkleRoot:[{
-        type:String,
-        required:[true,'Please Send a MerkleRoot'],
+       type:{type:String},
+       data:[{type:String}]
     }]
 },{
     timestamps:true,

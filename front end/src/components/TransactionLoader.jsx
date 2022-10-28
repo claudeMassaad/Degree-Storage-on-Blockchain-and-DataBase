@@ -13,10 +13,14 @@ const cssOverride = css`
   border-color: white;
 `;
 
-const TransactionLoader = () => {
+const TransactionLoader = (props) => {
   return (
     <div className="wrapper">
-      <div className="wrapper - title">Getting Merkle Tree and Root...</div>
+      <div className="wrapper - title">
+        {props.generated
+          ? "Generating Transaction on blockchain and saving to data base..."
+          : "Getting Merkle Tree and Root..."}
+      </div>
       <MoonLoader color={"#fff"} loading={true} css="moonCss" size={50} />
     </div>
   );
