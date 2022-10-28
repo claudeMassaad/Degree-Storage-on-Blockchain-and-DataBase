@@ -1,16 +1,12 @@
 #root {
   margin: auto;
   text-align: center;
-  /* border: 2px solid lime; */
 }
 
 .logo {
   height: 300px;
-  /* width: auto; */
-  /* bottom: 900px; */
   will-change: filter;
   max-width: 100%;
-  /* border: 2px solid red; */
   margin-top: 2rem;
   margin-bottom: 10px;
 }
@@ -20,13 +16,6 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
-
-/* .card {
-  padding-top: 100px;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid lime;
-} */
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -75,10 +64,6 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  /* place-items: center; */
-  /* min-width: 320px;
-  min-height: 100vh; */
-  /* border: 2px solid purple; */
 }
 
 h1 {
@@ -96,7 +81,9 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  color: white;
 }
+
 button:hover {
   border-color: #646cff;
 }
@@ -104,19 +91,7 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+ 
 
 .loading {
   top: "50%";

@@ -1,15 +1,3 @@
-/* 
-const style = {
-    wrapper: `text-white h-96 w-72 flex flex-col justify-center items-center`,
-    title: `font-semibold text-xl mb-12`,
-  }; */
-
-/* const cssOverride = css`
-    display: block;
-    margin: 0 2px;
-    border-color: white;
-  `; */
-
 .moonCss {
   display: block;
   margin: 0 auto;
@@ -24,10 +12,13 @@ const style = {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 }
 
-.wrapper-title {
+
+.wrapperTitle {
   font-size: x-large;
   font-weight: bold;
   font-size: 12;
+  margin-bottom:1rem ;
 }

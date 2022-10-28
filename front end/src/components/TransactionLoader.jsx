@@ -10,13 +10,12 @@ const style = {
 const cssOverride = css`
   display: block;
   margin: 0 2px;
-  border-color: white;
-`;
+  border-color: white;`;
 
 const TransactionLoader = (props) => {
   return (
     <div className="wrapper">
-      <div className="wrapper - title">
+      <div className="wrapperTitle">
         {props.generated
           ? "Generating Transaction on blockchain and saving to data base..."
           : "Getting Merkle Tree and Root..."}
