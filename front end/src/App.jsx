@@ -35,7 +35,13 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [txHash, setTxHash] = useState();
   const [txCompleted, setTxCompleted] = useState(false);
-  const [allDataReceived, setAllDataReceived] = useEffect([]);
+  const [allDataReceived, setAllDataReceived] = useState([]);
+
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQVVTVCIsImlhdCI6MTY2Njk0NDQ5OCwiZXhwIjoxNjY5NTM2NDk4fQ.vP2cKPI3FBCXu7_nU6GIhauBXl5jlAlhNmRswkQGxa4";
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
 
   const contractAddress = "0xd4f3f2f91840672358abc69eaf9bf7bafbd78906";
 
@@ -45,8 +51,9 @@ function App() {
   useEffect(() => {
     // setMerkleRoot(data[data.length - 1][0].data);
     // setMerkleTree(data[0]);
-    console.log(merkleTree);
-    console.log(merkleRoot);
+    // console.log(merkleTree);
+    // console.log(merkleRoot);
+    console.log(allDataReceived);
   }, [merkleRoot, merkleTree]);
 
   async function handleGetInfo() {
@@ -55,7 +62,7 @@ function App() {
     const response = await axios.get("http://localhost:3500");
     data = await response.data.layers;
 
-    setAllDataReceived(response);
+    setAllDataReceived(response.data);
     setMerkleTree(data[0]);
     // console.log(data);
     hexMerkleRoot = "0x" + bufferToHex(data[data.length - 1][0].data);
@@ -92,7 +99,11 @@ function App() {
       console.log("entered event");
       setTxHash(hash);
       setTxCompleted(true);
-      console.log("finished setting ");
+      console.log("finished blockchain tx");
+
+      console.log("started posting to mongo");
+      postToMongo();
+      console.log("finished posting to mongo");
 
       setIsLoading(false);
 
@@ -100,12 +111,16 @@ function App() {
     });
 
     // POST request to mongoDB
-    postToMongo();
   };
 
   async function postToMongo() {
     try {
-      const sendRequest = await axios.post("http://localhost:3000/pdf/postPDF" , ,config);
+      const sendRequest = await axios.post(
+        "http://localhost:3000/pdf/postPDF",
+        allDataReceived,
+        config
+      );
+      console.log(sendRequest);
     } catch (err) {
       console.log(err);
     }
